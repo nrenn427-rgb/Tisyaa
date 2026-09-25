@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Natisya Haira Putri Suji</title>
+    <!-- Google Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #080b11;
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+
+        /* Navigasi */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ec4899, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ec4899;
+        }
+
+        /* Container & Section */
+        section {
+            padding: 120px 8% 60px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* 1. BAGIAN PROFIL UTAMA (HERO) */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(236, 72, 153, 0.1);
+            color: #ec4899;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .avatar-frame {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ec4899, #818cf8);
+            padding: 6px;
+            box-shadow: 0 0 35px rgba(236, 72, 153, 0.3);
+        }
+
+        .avatar-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: #1e293b;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-ig {
+            background: linear-gradient(135deg, #f09433, #dc2743, #bc1888);
+            color: white;
+        }
+
+        .btn-wa {
+            background: #25d366;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Judul Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* 2. BAGIAN INFORMASI LENGKAP */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .info-card {
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            border-color: #ec4899;
+        }
+
+        .info-card i {
+            font-size: 1.8rem;
+            color: #ec4899;
+            margin-bottom: 15px;
+        }
+
+        .info-card h4 {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .info-card p {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        /* 3. TAHAPAN HOBI DANCE */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-item {
+            padding: 20px 25px;
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 20px;
+        }
+
+        .timeline-item h3 {
+            color: #ec4899;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-item p {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        /* 4. GALERI VIDEO DANCE */
+        .dance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .dance-card {
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .dance-desc {
+            padding: 15px;
+        }
+
+        .dance-desc h4 {
+            color: #ffffff;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .dance-desc p {
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #05070a;
+            color: #64748b;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .social-buttons {
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav>
+        <div class="logo">NATISYA</div>
+        <ul class="nav-links">
+            <li><a href="#profil">Profil</a></li>
+            <li><a href="#informasi">Informasi</a></li>
+            <li><a href="#tahapan">Tahapan Dance</a></li>
+            <li><a href="#video">Video Dance</a></li>
+        </ul>
+    </nav>
+
+    <!-- BAGIAN 1: PROFIL UTAMA (Tampil Pertama) -->
+    <section id="profil">
+        <div class="hero">
+            <div class="hero-text">
+                <div class="badge">
+                    <i class="fa-solid fa-user"></i> Web Profil Pribadi
+                </div>
+                <h1>Natisya Haira Putri Suji</h1>
+                <p>Selamat datang! Ini adalah halaman profil pribadi saya yang berisi informasi, hobi, serta perkembangan dance saya.</p>
+                <div class="social-buttons">
+                    <a href="https://instagram.com/geb_rann55" target="_blank" class="btn btn-ig">
+                        <i class="fa-brands fa-instagram"></i> @geb_rann55
+                    </a>
+                    <a href="https://wa.me/6283163805273" target="_blank" class="btn btn-wa">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="avatar-frame">
+                <img src="https://via.placeholder.com/280" alt="Foto Profil Natisya">
+            </div>
+        </div>
+    </section>
+
+    <!-- BAGIAN 2: INFORMASI DIRI -->
+    <section id="informasi">
+        <div class="section-title">
+            <h2>Informasi Diri</h2>
+            <p>Detail data singkat mengenai diri saya</p>
+        </div>
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fa-solid fa-id-card"></i>
+                <h4>Nama Lengkap</h4>
+                <p>Natisya Haira Putri Suji</p>
+            </div>
+            <div class="info-card">
+                <i class="fa-solid fa-cake-candles"></i>
+                <h4>Umur</h4>
+                <p>14 Tahun</p>
+            </div>
+            <div class="info-card">
+                <i class="fa-solid fa-school"></i>
+                <h4>Sekolah</h4>
+                <p>SMKN 4 Palembang</p>
+            </div>
+            <div class="info-card">
+                <i class="fa-solid fa-person-dancing"></i>
+                <h4>Hobi Utama</h4>
+                <p>Dance & Menari</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAGIAN 3: TAHAPAN HOBI DANCE -->
+    <section id="tahapan">
+        <div class="section-title">
+            <h2>Tahapan Menari</h2>
+            <p>Proses bertahap yang saya jalani dalam hobi dance</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h3>1. Melatih Kelenturan & Musikalisasi</h3>
+                <p>Langkah awal dengan pemanasan rutin, pembentukan kelenturan tubuh, serta melatih kepekaan nada lagu.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>2. Menghafal Koreografi Dasar</h3>
+                <p>Mulai menghafal langkah-langkah dasar tari modern serta gerakan dance sesuai tempo musik.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>3. Mengasah Ekpresi & Kekompakan</h3>
+                <p>Fokus pada ekspresi wajah, kerapian gerakan tangan, serta penyelarasan saat menari dalam grup.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>4. Penampilan & Cover Dance</h3>
+                <p>Menampilkan hasil latihan dalam bentuk video cover dance maupun penampilan langsung.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAGIAN 4: VDEO DANCE -->
+    <section id="video">
+        <div class="section-title">
+            <h2>Contoh Dance</h2>
+            <p>Saksikan beberapa video tarian favorit</p>
+        </div>
+        <div class="dance-grid">
+            <div class="dance-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/gQlMMD8auMs" title="Dance Cover 1" allowfullscreen></iframe>
+                </div>
+                <div class="dance-desc">
+                    <h4>K-Pop Cover Dance</h4>
+                    <p>Contoh koreografi cepat dan energik.</p>
+                </div>
+            </div>
+            <div class="dance-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/L134j-o4-6U" title="Dance Cover 2" allowfullscreen></iframe>
+                </div>
+                <div class="dance-desc">
+                    <h4>Group Choreography</h4>
+                    <p>Contoh gerakan tarian kelompok dengan fokus kekompakan.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Natisya Haira Putri Suji • SMKN 4 Palembang</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edukasi Mendalam: Aseksual & Interseksual</title>
+    <style>
+        /* Gaya Dasar & Warna Klasik */
+        :root {
+            --bg-classic: #0f0f11;
+            --card-bg: #1a1a22;
+            --text-main: #f5f5fa;
+            --text-muted: #a0a0b0;
+            --accent-ace: #8a2be2;      /* Ungu Aseksual */
+            --accent-intersex: #ffcc00; /* Emas Interseksual */
+            --border-color: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: var(--bg-classic);
+            color: var(--text-main);
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        /* Latar Belakang Animasi Mewah (Partikel Halus) */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            bottom: -60px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 50%;
+            animation: floatUp 20s infinite linear;
+        }
+
+        .particle:nth-child(1) { left: 5%; width: 100px; height: 100px; animation-duration: 15s; }
+        .particle:nth-child(2) { left: 20%; width: 50px; height: 50px; animation-duration: 25s; animation-delay: 2s; background: rgba(138, 43, 226, 0.03); }
+        .particle:nth-child(3) { left: 40%; width: 140px; height: 140px; animation-duration: 30s; }
+        .particle:nth-child(4) { left: 65%; width: 70px; height: 70px; animation-duration: 18s; animation-delay: 5s; background: rgba(255, 204, 0, 0.03); }
+        .particle:nth-child(5) { left: 85%; width: 110px; height: 110px; animation-duration: 22s; }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Navigasi & Struktur Konten */
+        header {
+            text-align: center;
+            padding: 80px 20px 40px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.6), transparent);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        /* Grid Dua Kolom untuk Penjelasan Detail */
+        .grid-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 850px) {
+            .grid-two-col { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .card.ace { border-left: 5px solid var(--accent-ace); }
+        .card.intersex { border-left: 5px solid var(--accent-intersex); }
+
+        .card h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .card p {
+            margin-bottom: 15px;
+            text-align: justify;
+            color: #e0e0e5;
+        }
+
+        .card ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Galeri Gambar / Bendera */
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .flag-render {
+            width: 100%;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            text-shadow: 1px 1px 4px #000;
+        }
+
+        .flag-ace {
+            background: linear-gradient(to bottom, #000 25%, #a3a3a3 25%, #a3a3a3 50%, #fff 50%, #fff 75%, #800080 75%);
+        }
+
+        .flag-intersex {
+            background-color: #ffda00;
+            position: relative;
+        }
+
+        .flag-intersex .circle {
+            width: 70px;
+            height: 70px;
+            border: 10px solid #7a0010;
+            border-radius: 50%;
+        }
+
+        .gallery-item h3 {
+            margin: 15px 0 5px;
+            font-size: 1.3rem;
+        }
+
+        .gallery-item p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 0 15px;
+        }
+
+        /* Tabel Perbandingan Ringkas */
+        .table-container {
+            overflow-x: auto;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: rgba(255,255,255,0.02);
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        /* Area Kuis Interaktif */
+        .quiz-section {
+            background: linear-gradient(135deg, #161620, #221a30);
+            border-radius: 12px;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+        }
+
+        .quiz-option {
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255,255,255,0.12);
+        }
+
+        .quiz-btn {
+            background: var(--accent-ace);
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        .result-box {
+            margin-top: 15px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Komponen Latar Belakang Bergerak -->
+    <div class="background-animation">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <header>
+        <h1>Eksplorasi & Edukasi</h1>
+        <p>Mengenal Spektrum Aseksual dan Varian Karakteristik Interseksual</p>
+    </header>
+
+    <div class="main-container">
+
+        <!-- SEKSI 1: Penjelasan Detail -->
+        <section class="grid-two-col">
+            <!-- Detail Aseksual -->
+            <div class="card ace">
+                <h2>Aseksualitas</h2>
+                <p>
+                    <strong>Aseksualitas (sering disebut "Ace")</strong> adalah sebuah payung orientasi seksual di mana seseorang mengalami keterbatasan atau ketiadaan ketertarikan seksual terhadap gender apa pun. Penting untuk dicatat bahwa aseksualitas berbeda dengan pilihan hidup selibat (*celibacy*) atau berpantang intimasi (*abstinence*). Selibat adalah pilihan perilaku, sedangkan aseksualitas adalah identitas orientasi biologis/psikis bawaan.
+                </p>
+                <p> Di dalam spektrum ini, terdapat berbagai variasi yang kaya:</p>
+                <ul>
+                    <li><strong>Demiseksual:</strong> Hanya merasakan ketertarikan seksual setelah ikatan emosional yang sangat kuat terbangun.</li>
+                    <li><strong>Grey-Aseksual:</strong> Berada di area abu-abu antara aloseksual (mengalami ketertarikan penuh) dan aseksual.</li>
+                </ul>
+                <p>
+                    Orang dengan identitas aseksual tetap memiliki kapasitas emosional penuh untuk mencintai, menjalani hubungan romantis (seperti *romantic ace*), atau berkomitmen penuh tanpa melibatkan aktivitas seksual.
+                </p>
+            </div>
+
+            <!-- Detail Interseksual -->
+            <div class="card intersex">
+                <h2>Interseksual</h2>
+                <p>
+                    <strong>Interseks</strong> merujuk pada variasi biologis alami di mana seseorang lahir dengan karakteristik anatomi reproduksi, kromosom, atau kadar hormonal yang tidak cocok dengan dikotomi biner medis konvensional tentang "tubuh laki-laki" atau "tubuh perempuan".
+                </p>

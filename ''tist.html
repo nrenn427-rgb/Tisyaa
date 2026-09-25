@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Natisya Haira Putri — X RPL2 • SMKN 4 Palembang</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;600;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08080B;--card:#121217;--line:#23232A;--txt:#EDEDE9;--mut:#9A9AA1;--lime:#D9FF3E;--vio:#8B5CF6;--green:#1BFF7A}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--txt);font-family:'Plus Jakarta Sans',sans-serif;overflow-x:hidden}
+h1,h2{font-family:'Syne',sans-serif}
+.bg{position:fixed;inset:0;z-index:-3;background:radial-gradient(800px at 15% 10%,rgba(139,92,246,.22),transparent),radial-gradient(600px at 90% 70%,rgba(217,255,62,.15),transparent),var(--bg)}
+.blob{position:fixed;width:700px;height:700px;border-radius:50%;filter:blur(130px);opacity:.6;animation:drift 14s infinite alternate;z-index:-2}
+.b1{background:var(--vio);top:-220px;right:-180px}.b2{background:var(--lime);bottom:-250px;left:-180px;animation-delay:-7s}
+@keyframes drift{to{transform:translate(80px,-60px) scale(1.2)}}
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--lime),var(--vio));z-index:99;width:0}
+.cursor{position:fixed;width:28px;height:28px;border:1.5px solid var(--lime);border-radius:50%;pointer-events:none;z-index:9999;mix-blend-mode:difference;transition:.08s}
+.dot{position:fixed;width:5px;height:5px;background:var(--lime);border-radius:50%;pointer-events:none;z-index:9999}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.nav{position:sticky;top:14px;z-index:20;display:flex;justify-content:space-between;align-items:center;background:rgba(18,18,23,.85);border:1px solid var(--line);border-radius:999px;padding:10px 14px 10px 20px;backdrop-filter:blur(16px)}
+.nav b{font-size:11px;letter-spacing:2px}.links{display:flex;gap:8px}
+.pill{border:1px solid var(--line);padding:8px 14px;border-radius:999px;font-size:11px;font-weight:700;background:#17171D;cursor:pointer;transition:.2s}
+.pill:hover,.pill.active{background:#fff;color:#000}
+.hero{margin-top:28px;display:grid;grid-template-columns:1.15fr.85fr;gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden;position:relative}
+.main{padding:28px}
+.kicker{font-family:'JetBrains Mono';font-size:10px;letter-spacing:3px;color:var(--lime)}
+.main h1{font-size:64px;line-height:.88;margin:14px 0}
+.main h1 em{background:linear-gradient(90deg,var(--lime),var(--green));-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-style:normal}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.tags span{border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:11px;background:#101015}
+.tags.lime{background:var(--lime);color:#000;font-weight:800;transform:rotate(-2deg)}
+.tags.vio{background:var(--vio);color:#fff;transform:rotate(2deg)}
+.type{font-family:'JetBrains Mono';font-size:13px;color:var(--lime);min-height:20px}
+.desc{color:var(--mut);font-size:13.5px;line-height:1.7;margin:10px 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.stat{background:#0E0E13;border:1px solid var(--line);border-radius:16px;padding:12px;text-align:center}
+.stat b{font-size:22px;display:block}.stat small{font-size:9px;color:#666;letter-spacing:1px}
+.bar{border:1px solid var(--line);border-radius:14px;background:#0E0E13;padding:10px 12px;display:flex;gap:10px;align-items:center}
+.eq{display:flex;gap:3px;height:18px;align-items:end}.eq i{width:3px;background:var(--lime);border-radius:99px;animation:b.45s infinite alternate;display:block}
+@keyframes b{from{height:4px}to{height:18px}}
+.photo{position:relative;min-height:560px;background:#000}
+.photo img{width:100%;height:100%;object-fit:cover}
+.fade{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.85),transparent 60%)}
+.meta{position:absolute;bottom:14px;left:14px;right:14px;display:flex;justify-content:space-between;align-items:end;z-index:2}
+.box{background:rgba(255,255,255,.92);color:#000;border-radius:16px;padding:12px 14px;font-size:11px;font-weight:800}
+.btns{display:grid;grid-template-columns:1fr 1fr}
+.btn{padding:18px;text-align:center;font-weight:800;font-size:11px;letter-spacing:1px;border-top:1px solid var(--line);transition:.25s}
+.btn:hover{background:#fff;color:#000}.btn.lime{background:var(--lime);color:#000}
+.marquee{margin-top:16px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#0E0E13;padding:10px 0;white-space:nowrap}
+.marquee div{display:inline-block;animation:marq 22s linear infinite}
+.marquee span{font-family:'Syne';font-size:14px;margin:0 24px;opacity:.6}.marquee.lime{color:var(--lime);opacity:1}.marquee.vio{color:var(--vio);opacity:1}
+@keyframes marq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.sections{margin-top:16px;display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.sec{border:1px solid var(--line);background:var(--card);border-radius:24px;padding:22px}
+.sec h3{font-size:12px;letter-spacing:2px;margin-bottom:12px}
+.sec p{font-size:12.5px;color:var(--mut);line-height:1.6}
+.s1{grid-column:span 7}.s2{grid-column:span 5}.s3{grid-column:span 5}.s4{grid-column:span 7}.s5{grid-column:span 12}
+.skill{margin:10px 0}.skill div{display:flex;justify-content:space-between;font-size:11px;margin-bottom:6px}
+.track{height:6px;background:#1C1C22;border-radius:99px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,var(--lime),var(--green));width:0;transition:1.2s}
+.timeline{display:flex;flex-direction:column;gap:12px}.tl{border-left:2px solid var(--line);padding-left:14px;position:relative}
+.tl::before{content:'';position:absolute;left:-6px;top:0;width:10px;height:10px;border-radius:50%;background:var(--lime)}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.g{aspect-ratio:1;border-radius:14px;background:#0E0E13;border:1px solid var(--line);display:grid;place-items:center;font-size:28px;transition:.3s;cursor:pointer}
+.g:hover{transform:translateY(-4px) rotate(1deg);border-color:var(--lime)}
+.footer{margin:20px 0;border:1px solid var(--line);border-radius:18px;padding:14px 20px;display:flex;justify-content:space-between;color:#555;font-size:10px;letter-spacing:1px}
+.reveal{opacity:0;transform:translateY(24px);transition:.7s}.reveal.in{opacity:1;transform:none}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.sections{grid-template-columns:1fr}.s1,.s2,.s3,.s4,.s5{grid-column:span 1}.main h1{font-size:46px}.cursor,.dot{display:none}*{cursor:auto!important}}
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div><div class="cursor" id="cur"></div><div class="dot" id="dot"></div>
+<div class="bg"></div><div class="blob b1"></div><div class="blob b2"></div>
+<div class="wrap">
+  <div class="nav">
+    <b>SMKN 4 PALEMBANG • X RPL2 • NATISYA</b>
+    <div class="links"><a class="pill" href="#about">ABOUT</a><a class="pill" href="#skill">SKILL</a><a class="pill active" href="https://instagram.com/geb_rann55" target="_blank">IG @geb_rann55</a></div>
+  </div>
+
+  <div class="hero">
+    <div class="card main reveal" id="tilt">
+      <div class="kicker">PROFILE • 19-06-2012 • DARK BUT BRIGHT</div>
+      <h1>NATISYA<br><em>HAIRA PUTRI</em><br>SUJI</h1>
+      <div class="type" id="type"></div>
+      <div class="tags"><span class="lime">14 Y.O</span><span>X RPL2</span><span class="vio">SMKN 4 PALEMBANG</span><span>💃 DANCE</span><span>RPL</span></div>
+      <p class="desc">Hai! Aku Natisya Haira Putri, umur 14, kelas X RPL2. Aku anak RPL yang hobi dance. Website ini aku bikin terinspirasi dari ferdialf.vercel.app — minimalis tapi gak simple, banyak detail, dark tapi cerah.</p>
+      <div class="stats"><div class="stat"><b>14</b><small>YEARS OLD</small></div><div class="stat"><b>X RPL2</b><small>CLASS</small></div><div class="stat"><b id="days">0</b><small>DAYS ALIVE</small></div></div>
+      <div class="bar"><div class="eq"><i></i><i style="animation-delay:.1s;background:var(--vio)"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.3s;background:var(--vio)"></i></div><div style="flex:1"><small style="color:#666">CURRENT MOOD</small><br><b id="mood" style="font-size:12px">Dark color, bright soul ✨</b></div><span>🃏</span></div>
+    </div>
+    <div class="card reveal">
+      <div class="photo">
+        <img src="https://drive.google.com/uc?export=view&id=1S8k74XfXtEzShCCaVEQzdaqspO7ItUQR" alt="Natisya" onerror="this.src='https://images.unsplash.com/photo-1598550476439-6847785fcea6?w=800'">
+        <div class="fade"></div>
+        <div class="meta"><div class="box">NATISYA H.P.S<br><small>X RPL2 • Dancer • Coder • 19-06-2012</small></div><div style="width:40px;height:40px;border-radius:50%;background:var(--lime);display:grid;place-items:center;color:#000;font-weight:800">14</div></div>
+      </div>
+      <div class="btns"><a class="btn lime" href="https://instagram.com/geb_rann55" target="_blank">IG @geb_rann55</a><a class="btn" href="https://wa.me/6283838441669" target="_blank">WA 083838441669</a></div>
+    </div>
+  </div>
+
+  <div class="marquee reveal"><div><span>WHY SO SERIOUS?</span><span class="lime">•</span><span>DANCER</span><span class="vio">•</span><span>CODER</span><span class="lime">•</span><span>X RPL2</span><span class="vio">•</span><span>SMKN 4 PALEMBANG</span><span class="lime">•</span><span>WHY SO SERIOUS?</span><span class="vio">•</span><span>DANCER</span><span class="lime">•</span><span>CODER</span></div></div>
+
+  <div class="sections">
+    <div class="card sec s1 reveal" id="about"><h3>ABOUT ME — TENTANG AKU</h3><p>Nama lengkapku Natisya Haira Putri Suji. Lahir 19 Juni 2012, umur 14 tahun. Sekolah di SMKN 4 Palembang, jurusan Rekayasa Perangkat Lunak kelas X RPL2. Aku suka tampil beda — dark aesthetic tapi cheerful, suka Joker karena dia jujur dengan chaos-nya.</p><div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap"><span class="pill">📍 Palembang</span><span class="pill">🎂 19-06-2012</span><span class="pill">💃 Dance K-Pop</span><span class="pill">👩‍💻 RPL</span></div></div>
+    <div class="card sec s2 reveal" id="skill"><h3>SKILLS</h3><div class="skill"><div><span>HTML / CSS</span><b>85%</b></div><div class="track"><div class="fill" data-w="85%"></div></div></div><div class="skill"><div><span>JavaScript Basic</span><b>60%</b></div><div class="track"><div class="fill" data-w="60%" style="background:linear-gradient(90deg,var(--vio),#FF5CA1)"></div></div></div><div class="skill"><div><span>Dance Performance</span><b>95%</b></div><div class="track"><div class="fill" data-w="95%"></div></div></div><div class="skill"><div><span>UI Design</span><b>70%</b></div><div class="track"><div class="fill" data-w="70%"></div></div></div></div>
+    <div class="card sec s3 reveal"><h3>TIMELINE</h3><div class="timeline"><div class="tl"><b style="font-size:12px">2025 — Masuk SMKN 4 Palembang</b><br><small style="color:var(--mut)">Jurusan RPL, kelas X RPL2</small></div><div class="tl"><b style="font-size:12px">2012 — Lahir</b><br><small style="color:var(--mut)">19 Juni 2012 — Palembang</small></div><div class="tl"><b style="font-size:12px">Sekarang — Dancer & Coder</b><br><small style="color:var(--mut)">Aktif dance & belajar bikin web kayak ini</small></div></div></div>
+    <div class="card sec s4 reveal"><h3>HOBBY — DANCE GALLERY</h3><p>Klik emoji buat dance mode!</p><div class="gallery"><div class="g" onclick="dance()">💃</div><div class="g" onclick="dance()">🩰</div><div class="g" onclick="dance()">🎶</div><div class="g" onclick="dance()">🃏</div><div class="g" onclick="dance()">👑</div><div class="g" onclick="dance()">🔥</div><div class="g" onclick="dance()">✨</div><div class="g" onclick="dance()">💜</div></div></div>
+    <div class="card sec s5 reveal" style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px"><div><h3 style="margin:0">LET'S CONNECT — HUBUNGI AKU</h3><p>Collab dance atau project RPL? DM aja, fast response!</p></div><div style="display:flex;gap:8px"><a class="pill active" href="https://instagram.com/geb_rann55" target="_blank">IG: geb_rann55</a><a class="pill active" style="background:var(--lime);color:#000;border-color:var(--lime)" href="https://wa.me/6283838441669" target="_blank">WA: 083838441669</a></div></div>
+  </div>
+  <div class="footer"><span>© 2026 NATISYA HAIRA PUTRI — X RPL2</span><span>DARK BUT BRIGHT • BUILT WITH 💜</span></div>
+</div>
+<script>
+// progress
+window.addEventListener('scroll',()=>{document.getElementById('prog').style.width=(scrollY/(document.body.scrollHeight-innerHeight)*100)+'%';document.querySelectorAll('.reveal').forEach(e=>{if(e.getBoundingClientRect().top<innerHeight-80)e.classList.add('in')});document.querySelectorAll('.fill').forEach(f=>{if(f.getBoundingClientRect().top<innerHeight)f.style.width=f.dataset.w})});
+document.getElementById('days').innerText=Math.floor((new Date()-new Date(2012,5,19))/86400000);
+// typing
+const words=["Dancer • Coder • Dreamer","X RPL2 — SMKN 4 Palembang","Dark but bright soul ✨","Why so serious? 🃏"];let wi=0,ci=0,del=false;function typ(){const w=words[wi];const el=document.getElementById('type');el.textContent=w.slice(0,ci)+(ci%2?'|':'');if(!del){ci++;if(ci>w.length+8)del=true}else{ci--;if(ci<=0){del=false;wi=(wi+1)%words.length}}setTimeout(typ,del?50:90)}typ();
+// mood
+const moods=["Dark color, bright soul ✨","Gelap tapi cerah 🃏","Dance in the chaos 💃","X RPL2 pride!"];let mi=0;setInterval(()=>{document.getElementById('mood').innerText=moods[mi=(mi+1)%moods.length]},2200);
+// cursor
+const cur=document.getElementById('cur'),dot=document.getElementById('dot');document.addEventListener('mousemove',e=>{cur.style.left=e.clientX-14+'px';cur.style.top=e.clientY-14+'px';dot.style.left=e.clientX-2+'px';dot.style.top=e.clientY-2+'px'});
+// tilt
+const tilt=document.getElementById('tilt');document.addEventListener('mousemove',e=>{const r=tilt.getBoundingClientRect();tilt.style.transform=`perspective(900px) rotateY(${(e.clientX-r.left-r.width/2)/40}deg) rotateX(${-(e.clientY-r.top-r.height/2)/40}deg)`});
+function dance(){document.body.animate([{filter:'hue-rotate(0deg)'},{filter:'hue-rotate(80deg)'},{filter:'hue-rotate(0deg)'}],{duration:600});tilt.animate([{transform:'rotate(0)'},{transform:'rotate(2deg) scale(1.02)'},{transform:'rotate(-2deg) scale(1.02)'},{transform:'rotate(0)'}],{duration:400})}
+</script>
+</body>
+</html>

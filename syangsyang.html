@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edukasi Ragam Identitas: Aseksual & Interseksual</title>
+    <!-- Google Fonts untuk font modern -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- AOS Library untuk Animasi Scroll -->
+    <link href="https://unpkg.com" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-box: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        /* Gradient Text Efek Modern */
+        .gradient-text {
+            background: linear-gradient(45deg, #a855f7, #6366f1, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: #f3f4f6;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #a855f7;
+        }
+
+        /* --- HERO SECTION (Bisa Bergerak/Bernapas) --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            color: #9ca3af;
+            margin-bottom: 30px;
+        }
+
+        /* Animasi Mengambang untuk Hero */
+        @keyframes pulse {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* --- MAIN CARDS SECTION --- */
+        .info-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1max));
+            gap: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efek Hover Bergerak pada Card */
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.15);
+            border-color: rgba(168, 85, 247, 0.4);
+        }
+
+        /* Aseksual Theme Border (Ungu/Hitam/Putih) */
+        .card.asexual::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, #000, #a3a3a3, #800080);
+        }
+
+        /* Interseksual Theme Border (Kuning/Ungu) */
+        .card.intersex::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, #ffda00, #7a003c, #ffda00);
+        }
+
+        .card h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            color: #9ca3af;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* --- INTERACTIVE SECTION (Efek Counter/Fakta) --- */
+        .fakta-section {
+            background: #111827;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .fakta-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .fakta-grid {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .fakta-box {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 30px;
+            border-radius: 15px;
+            min-width: 250px;
+        }
+
+        .fakta-box h3 {
+            font-size: 3rem;
+            color: #a855f7;
+            margin-bottom: 100px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { padding: 20px; }
+            nav ul { display: none; } /* Menyembunyikan menu di mobile demi kesederhanaan */
+            .hero h1 { font-size: 2.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo gradient-text">SpectrumEdu</div>
+        <ul>
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#edukasi">Edukasi</a></li>
+            <li><a href="#fakta">Fakta</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <h1 class="gradient-text">Memahami Keragaman Manusia</h1>
+        <p>Mari belajar bersama tentang identitas yang valid, ilmiah, dan perlu kita hormati: Aseksualitas dan Interseksualitas.</p>
+    </section>
+
+    <!-- CONTENT CARDS SECTION -->
+    <section class="info-container" id="edukasi">
+        
+        <!-- CARD ASEKSUAL -->
+        <div class="card asexual" data-aos="fade-right" data-aos-duration="1000">
+            <h2>Aseksualitas</h2>
+            <p><strong>Aseksual (Ace)</strong> adalah spektrum orientasi di mana seseorang mengalami sedikit atau sama sekali tidak memiliki ketertarikan seksual terhadap orang lain.</p>
+            <p>Penting untuk diingat bahwa aseksualitas berbeda dengan selibat atau pantangan karena pilihan. Ini adalah orientasi alami bawaan.</p>
+            <p>Orang aseksual tetap bisa merasakan ketertarikan emosional, romantis, dan membangun hubungan intim yang bahagia.</p>
+        </div>
+
+        <!-- CARD INTERSEKSUAL -->
+        <div class="card intersex" data-aos="fade-left" data-aos-duration="1000">
+            <h2>Interseksualitas</h2>
+            <p><strong>Interseksual</strong> adalah istilah payung untuk seseorang yang terlahir dengan karakteristik seks fisik (seperti kromosom, hormon, atau organ reproduksi) yang tidak sesuai dengan definisi medis standar tentang tubuh laki-laki atau perempuan.</p>
+            <p>Ini adalah variasi biologis alami pada tubuh manusia, bukan sebuah penyakit medis yang harus "disembuhkan".</p>
+            <p>Kondisi interseks sering kali sudah ada sejak lahir, meskipun terkadang baru terlihat saat memasuki masa pubertas.</p>
+        </div>
+
+    </section>
+
+    <!-- INTERACTIVE FACTS SECTION -->
+    <section class="fakta-section" id="fakta">
+        <h2 class="fakta-title gradient-text" data-aos="zoom-in">Tahukah Anda?</h2>
+        <div class="fakta-grid">
+            <div class="fakta-box" data-aos="flip-up" data-aos-delay="100">
+                <h3 class="counter" data-target="1">0</h3>
+                <p>Sekitar 1% dari populasi dunia berada dalam spektrum Aseksual.</p>
+            </div>
+            <div class="fakta-box" data-aos="flip-up" data-aos-delay="300">
+                <h3 class="counter" data-target="1.7">0</h3>
+                <p>Hingga 1.7% bayi lahir dengan karakteristik Interseks (setara dengan jumlah orang berambut merah alami).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 SpectrumEdu. Dibuat untuk tujuan edukasi inklusif dan modern.</p>
+    </footer>
+
+    <!-- AOS JavaScript untuk mengaktifkan efek bergerak saat scroll -->
+    <script src="https://unpkg.com"></script>
+    <script>
+        // Inisialisasi library animasi scroll
+        AOS.init({
+            once: false // Animasi akan berjalan ulang setiap kali di-scroll ke atas/bawah
+        });
+
+        // Efek Angka Berjalan (Counter Animation)
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                
+                // Menentukan kecepatan penambahan angka
+                const speed = target === 1.7 ? 0.05 : 0.03; 
+
+                if (count < target) {
+                    counter.innerText = (count + speed).toFixed(1);
+                    setTimeout(updateCount, 30);
+                } else {
+                    counter.innerText = target + '%';
+                }
+            };
+            
+            // Memicu fungsi counter saat elemen terlihat (opsional sederhana)
+            updateCount();
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edukasi Ragam Identitas: Aseksual & Interseksual</title>
+    <!-- Google Fonts untuk font modern -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <!-- AOS Library untuk Animasi Scroll -->
+    <link href="https://unpkg.com" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-box: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #0b0f19;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        /* Gradient Text Efek Modern */
+        .gradient-text {
+            background: linear-gradient(45deg, #a855f7, #6366f1, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(11, 15, 25, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: #f3f4f6;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #a855f7;
+        }
+
+        /* --- HERO SECTION (Bisa Bergerak/Bernapas) --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: pulse 4s infinite ease-in-out;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            color: #9ca3af;
+            margin-bottom: 30px;
+        }
+
+        /* Animasi Mengambang untuk Hero */
+        @keyframes pulse {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* --- MAIN CARDS SECTION --- */
+        .info-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 100px 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1max));
+            gap: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efek Hover Bergerak pada Card */
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(168, 85, 247, 0.15);
+            border-color: rgba(168, 85, 247, 0.4);
+        }
+
+        /* Aseksual Theme Border (Ungu/Hitam/Putih) */
+        .card.asexual::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, #000, #a3a3a3, #800080);
+        }
+
+        /* Interseksual Theme Border (Kuning/Ungu) */
+        .card.intersex::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 5px;
+            background: linear-gradient(90deg, #ffda00, #7a003c, #ffda00);
+        }
+
+        .card h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            color: #9ca3af;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        /* --- INTERACTIVE SECTION (Efek Counter/Fakta) --- */
+        .fakta-section {
+            background: #111827;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .fakta-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .fakta-grid {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .fakta-box {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 30px;
+            border-radius: 15px;
+            min-width: 250px;
+        }
+
+        .fakta-box h3 {
+            font-size: 3rem;
+            color: #a855f7;
+            margin-bottom: 100px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { padding: 20px; }
+            nav ul { display: none; } /* Menyembunyikan menu di mobile demi kesederhanaan */
+            .hero h1 { font-size: 2.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo gradient-text">SpectrumEdu</div>
+        <ul>
+            <li><a href="#hero">Beranda</a></li>
+            <li><a href="#edukasi">Edukasi</a></li>
+            <li><a href="#fakta">Fakta</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <h1 class="gradient-text">Memahami Keragaman Manusia</h1>
+        <p>Mari belajar bersama tentang identitas yang valid, ilmiah, dan perlu kita hormati: Aseksualitas dan Interseksualitas.</p>
+    </section>
+
+    <!-- CONTENT CARDS SECTION -->
+    <section class="info-container" id="edukasi">
+        
+        <!-- CARD ASEKSUAL -->
+        <div class="card asexual" data-aos="fade-right" data-aos-duration="1000">
+            <h2>Aseksualitas</h2>
+            <p><strong>Aseksual (Ace)</strong> adalah spektrum orientasi di mana seseorang mengalami sedikit atau sama sekali tidak memiliki ketertarikan seksual terhadap orang lain.</p>
+            <p>Penting untuk diingat bahwa aseksualitas berbeda dengan selibat atau pantangan karena pilihan. Ini adalah orientasi alami bawaan.</p>
+            <p>Orang aseksual tetap bisa merasakan ketertarikan emosional, romantis, dan membangun hubungan intim yang bahagia.</p>
+        </div>
+
+        <!-- CARD INTERSEKSUAL -->
+        <div class="card intersex" data-aos="fade-left" data-aos-duration="1000">
+            <h2>Interseksualitas</h2>
+            <p><strong>Interseksual</strong> adalah istilah payung untuk seseorang yang terlahir dengan karakteristik seks fisik (seperti kromosom, hormon, atau organ reproduksi) yang tidak sesuai dengan definisi medis standar tentang tubuh laki-laki atau perempuan.</p>
+            <p>Ini adalah variasi biologis alami pada tubuh manusia, bukan sebuah penyakit medis yang harus "disembuhkan".</p>
+            <p>Kondisi interseks sering kali sudah ada sejak lahir, meskipun terkadang baru terlihat saat memasuki masa pubertas.</p>
+        </div>
+
+    </section>
+
+    <!-- INTERACTIVE FACTS SECTION -->
+    <section class="fakta-section" id="fakta">
+        <h2 class="fakta-title gradient-text" data-aos="zoom-in">Tahukah Anda?</h2>
+        <div class="fakta-grid">
+            <div class="fakta-box" data-aos="flip-up" data-aos-delay="100">
+                <h3 class="counter" data-target="1">0</h3>
+                <p>Sekitar 1% dari populasi dunia berada dalam spektrum Aseksual.</p>
+            </div>
+            <div class="fakta-box" data-aos="flip-up" data-aos-delay="300">
+                <h3 class="counter" data-target="1.7">0</h3>
+                <p>Hingga 1.7% bayi lahir dengan karakteristik Interseks (setara dengan jumlah orang berambut merah alami).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 SpectrumEdu. Dibuat untuk tujuan edukasi inklusif dan modern.</p>
+    </footer>
+
+    <!-- AOS JavaScript untuk mengaktifkan efek bergerak saat scroll -->
+    <script src="https://unpkg.com"></script>
+    <script>
+        // Inisialisasi library animasi scroll
+        AOS.init({
+            once: false // Animasi akan berjalan ulang setiap kali di-scroll ke atas/bawah
+        });
+
+        // Efek Angka Berjalan (Counter Animation)
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const updateCount = () => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                
+                // Menentukan kecepatan penambahan angka
+                const speed = target === 1.7 ? 0.05 : 0.03; 
+
+                if (count < target) {
+                    counter.innerText = (count + speed).toFixed(1);
+                    setTimeout(updateCount, 30);
+                } else {
+                    counter.innerText = target + '%';
+                }
+            };
+            
+            // Memicu fungsi counter saat elemen terlihat (opsional sederhana)
+            updateCount();
+        });
+    </script>
+</body>
+</html>

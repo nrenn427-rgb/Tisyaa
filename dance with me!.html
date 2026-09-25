@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tisya Dance World</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #06090f;
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+
+        .glow-bg-1 {
+            position: absolute;
+            top: 5%;
+            left: -5%;
+            width: 450px;
+            height: 450px;
+            background: rgba(236, 72, 153, 0.2);
+            filter: blur(140px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .glow-bg-2 {
+            position: absolute;
+            top: 50%;
+            right: -5%;
+            width: 500px;
+            height: 500px;
+            background: rgba(129, 140, 248, 0.18);
+            filter: blur(150px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 15, 26, 0.85);
+            backdrop-filter: blur(15px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ec4899, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ec4899;
+        }
+
+        section {
+            padding: 120px 8% 60px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(236, 72, 153, 0.12);
+            color: #ec4899;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.3rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            max-width: 520px;
+            line-height: 1.6;
+        }
+
+        .avatar-frame {
+            width: 290px;
+            height: 290px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ec4899, #818cf8);
+            padding: 6px;
+            box-shadow: 0 0 45px rgba(236, 72, 153, 0.35);
+            animation: pulse-glow 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 30px rgba(236, 72, 153, 0.3); }
+            100% { box-shadow: 0 0 50px rgba(129, 140, 248, 0.5); }
+        }
+
+        .avatar-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: #1e293b;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .btn-ig {
+            background: linear-gradient(135deg, #f09433, #dc2743, #bc1888);
+            color: white;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3);
+        }
+
+        .btn-wa {
+            background: #25d366;
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .info-card {
+            background: rgba(22, 30, 46, 0.6);
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-6px);
+            border-color: #ec4899;
+            box-shadow: 0 10px 30px rgba(236, 72, 153, 0.15);
+        }
+
+        .info-card i {
+            font-size: 1.8rem;
+            color: #ec4899;
+            margin-bottom: 15px;
+        }
+
+        .info-card h4 {
+            color: #94a3b8;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        .info-card p {
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .step-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .step-card {
+            background: rgba(22, 30, 46, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 30px 25px;
+            position: relative;
+            backdrop-filter: blur(10px);
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #ec4899, #818cf8);
+            opacity: 0.4;
+            transition: 0.4s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(236, 72, 153, 0.4);
+            box-shadow: 0 15px 35px rgba(236, 72, 153, 0.15);
+        }
+
+        .step-card:hover::before {
+            opacity: 1;
+            height: 4px;
+        }
+
+        .step-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            background: rgba(236, 72, 153, 0.12);
+            color: #ec4899;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            border: 1px solid rgba(236, 72, 153, 0.2);
+        }
+
+        .step-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: rgba(255, 255, 255, 0.15);
+        }
+
+        .step-card:hover .step-number {
+            color: rgba(236, 72, 153, 0.4);
+        }
+
+        .step-card h3 {
+            font-size: 1.2rem;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .step-card p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .step-tag {
+            display: inline-block;
+            margin-top: auto;
+            padding: 5px 12px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #818cf8;
+            font-size: 0.75rem;
+            font-weight: 600;
+            width: fit-content;
+        }
+
+        .dance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .dance-card {
+            background: rgba(22, 30, 46, 0.6);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .dance-card:hover {
+            transform: translateY(-6px);
+            border-color: #ec4899;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .dance-desc {
+            padding: 18px;
+        }
+
+        .dance-desc h4 {
+            color: #ffffff;
+            font-size: 1.05rem;
+            margin-bottom: 5px;
+        }
+
+        .dance-desc p {
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        .music-bar {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(10, 15, 26, 0.9);
+            border: 1px solid rgba(236, 72, 153, 0.4);
+            backdrop-filter: blur(15px);
+            padding: 12px 20px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .play-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #ec4899;
+            border: none;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .play-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .music-info {
+            font-size: 0.8rem;
+        }
+
+        .music-info strong {
+            display: block;
+            color: #ffffff;
+        }
+
+        .music-info span {
+            color: #94a3b8;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            background: #030508;
+            color: #64748b;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .social-buttons {
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow-bg-1"></div>
+    <div class="glow-bg-2"></div>
+
+    <nav>
+        <div class="logo">TISYA DANCE</div>
+        <ul class="nav-links">
+            <li><a href="#profil">Beranda</a></li>
+            <li><a href="#informasi">Profil</a></li>
+            <li><a href="#tahapan">Proses Dance</a></li>
+            <li><a href="#video">Koleksi Video</a></li>
+        </ul>
+    </nav>
+
+    <section id="profil">
+        <div class="hero">
+            <div class="hero-text">
+                <div class="badge">
+                    <i class="fa-solid fa-sparkles"></i> Welcome to My Dance World
+                </div>
+                <h1>Let’s Dance & Move with Me! 💃</h1>
+                <p>Hai hai! Aku Natisya Haira Putri Suji dari SMKN 4 Palembang. Di sini tempat aku membagikan energi, ekspresi, dan passion-ku lewat setiap gerakan tari. Yuk, intip perjalanan menari aku</p>
+                <div class="social-buttons">
+                    <a href="https://instagram.com/geb_rann55" target="_blank" class="btn btn-ig">
+                        <i class="fa-brands fa-instagram"></i> @geb_rann55
+                    </a>
+                    <a href="https://wa.me/6283163805273" target="_blank" class="btn btn-wa">
+                        <i class="fa-brands fa-whatsapp"></i> Chat via WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="avatar-frame">
+    <img src="https://lh3.googleusercontent.com/d/1DKEQdy94JMbsil3u1M49eCrmfZXLCXmf" alt="Deskripsi Gambar">
+        </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="informasi">
+        <div class="section-title">
+            <h2>Tentang Aku</h2>
+            <p>Informasi singkat dan kontak resmi Tisya</p>
+        </div>
+        <div class="info-grid">
+            <div class="info-card">
+                <i class="fa-solid fa-id-card"></i>
+                <h4>Nama Lengkap</h4>
+                <p>Natisya Haira Putri Suji</p>
+            </div>
+            <div class="info-card">
+                <i class="fa-solid fa-cake-candles"></i>
+                <h4>Umur</h4>
+                <p>14 Tahun</p>
+            </div>
+            <div class="info-card">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h4>Sekolah</h4>
+                <p>SMKN 4 Palembang</p>
+            </div>
+            <div class="info-card">
+                <i class="fa-solid fa-fire-flame-curved"></i>
+                <h4>Passion</h4>
+                <p>Dance & Choreography</p>
+            </div>
+            <div class="info-card">
+                <i class="fa-brands fa-instagram"></i>
+                <h4>Instagram</h4>
+                <p>@geb_rann55</p>
+            </div>
+            <div class="info-card">
+                <i class="fa-brands fa-whatsapp"></i>
+                <h4>WhatsApp</h4>
+                <p>083163805273</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="tahapan">
+        <div class="section-title">
+            <h2>Rahasia di Balik Gerakan ⚡</h2>
+            <p>Empat pilar utama yang Tisya terapkan untuk menciptakan tarian yang powerful</p>
+        </div>
+
+        <div class="step-container">
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-icon">
+                        <i class="fa-solid fa-person-running"></i>
+                    </div>
+                    <span class="step-number">01</span>
+                </div>
+                <h3>Stretch & Prepare</h3>
+                <p>Melenturkan otot dan sendi agar tubuh siap mengekspresikan gerakan dengan maksimal tanpa cedera.</p>
+                <span class="step-tag">Persiapan Fisik</span>
+            </div>
+
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-icon">
+                        <i class="fa-solid fa-drum"></i>
+                    </div>
+                    <span class="step-number">02</span>
+                </div>
+                <h3>Feel the Beat</h3>
+                <p>Meresapi setiap ketukan dan tempo lagu agar gerakan mengalir alami sesuai dengan ritme.</p>
+                <span class="step-tag">Analisis Musik</span>
+            </div>
+
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-icon">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <span class="step-number">03</span>
+                </div>
+                <h3>Master the Moves</h3>
+                <p>Membentuk ketajaman dan akurasi koreografi dari detail tangan hingga transisi langkah.</p>
+                <span class="step-tag">Latihan Koreo</span>
+            </div>
+
+            <div class="step-card">
+                <div class="step-header">
+                    <div class="step-icon">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <span class="step-number">04</span>
+                </div>
+                <h3>Bring It to Life</h3>
+                <p>Menumpahkan emosi dan karakter lagu lewat ekspresi wajah agar pertunjukan terasa hidup.</p>
+                <span class="step-tag">Penjiwaan</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="video">
+        <div class="section-title">
+            <h2>Koleksi Gerakan Favorit 🎥</h2>
+            <p>Inspirasi dan referensi dance yang memacu semangat menari Tisya</p>
+        </div>
+
+        <div class="dance-grid">
+            <div class="dance-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube-nocookie.com/embed/32si5cfrONY" title="BLACKPINK - How You Like That" allowfullscreen></iframe>
+                </div>
+                <div class="dance-desc">
+                    <h4>BLACKPINK - How You Like That</h4>
+                    <p>Koreografi tajam, penuh energi, dan fokus pada dinamika gerakan.</p>
+                </div>
+            </div>
+
+            <div class="dance-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube-nocookie.com/embed/gQlMMD8auMs" title="BLACKPINK - Pink Venom" allowfullscreen></iframe>
+                </div>
+                <div class="dance-desc">
+                    <h4>BLACKPINK - Pink Venom</h4>
+                    <p>Perpaduan ritme hip-hop yang cepat dan ketukan yang berani.</p>
+                </div>
+            </div>
+
+            <div class="dance-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube-nocookie.com/embed/YpVjU4OJ4Ms" title="PROJECT JASP.ER - SADISTIC" allowfullscreen></iframe>
+                </div>
+                <div class="dance-desc">
+                    <h4>PROJECT JASP.ER - SADISTIC</h4>
+                    <p>Eksplorasi gaya tarian modern dengan fleksibilitas dan ritme tinggi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="music-bar">
+        <button class="play-btn" id="musicToggle">
+            <i class="fa-solid fa-play" id="musicIcon"></i>
+        </button>
+        <div class="music-info">
+            <strong>Music Player</strong>
+            <span>Lagu Latar Belakang</span>
+        </div>
+        <audio id="bgMusic" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Natisya Haira Putri Suji • SMKN 4 Palembang</p>
+    </footer>
+
+    <script>
+        const musicBtn = document.getElementById('musicToggle');
+        const musicIcon = document.getElementById('musicIcon');
+        const bgMusic = document.getElementById('bgMusic');
+        let isPlaying = false;
+
+        musicBtn.addEventListener('click', () => {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicIcon.className = 'fa-solid fa-play';
+            } else {
+                bgMusic.play();
+                musicIcon.className = 'fa-solid fa-pause';
+            }
+            isPlaying = !isPlaying;
+        });
+    </script>
+</body>
+</html>

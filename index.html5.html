@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edukasi Mendalam: Aseksual & Interseksual</title>
+    <style>
+        /* Skema Warna Klasik & Elegan */
+        :root {
+            --bg-classic: #0c0c0e;
+            --card-bg: #16161d;
+            --text-main: #f5f5fa;
+            --text-muted: #9a9ab0;
+            --accent-ace: #8a2be2;      
+            --accent-intersex: #ffcc00; 
+            --border-color: rgba(255, 255, 255, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: var(--bg-classic);
+            color: var(--text-main);
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.8;
+        }
+
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            bottom: -70px;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 50%;
+            animation: floatUp 22s infinite linear;
+        }
+
+        /* Variasi ukuran & waktu animasi */
+        .particle:nth-child(1) { left: 8%; width: 90px; height: 90px; animation-duration: 14s; }
+        .particle:nth-child(2) { left: 28%; width: 45px; height: 45px; animation-duration: 24s; animation-delay: 2s; background: rgba(138, 43, 226, 0.04); }
+        .particle:nth-child(3) { left: 55%; width: 130px; height: 130px; animation-duration: 28s; }
+        .particle:nth-child(4) { left: 80%; width: 65px; height: 65px; animation-duration: 18s; animation-delay: 4s; background: rgba(255, 204, 0, 0.03); }
+
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-115vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Tata Letak Konten */
+        header {
+            text-align: center;
+            padding: 80px 20px 40px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        .main-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        /* Grid Utama Dua Kolom */
+        .grid-two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 850px) {
+            .grid-two-col { grid-template-columns: 1fr; }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .card.ace { border-top: 5px solid var(--accent-ace); }
+        .card.intersex { border-top: 5px solid var(--accent-intersex); }
+
+        .card h2 {
+            font-size: 2.1rem;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        .card p {
+            margin-bottom: 15px;
+            text-align: justify;
+            color: #e0e0e5;
+        }
+
+        /* Wadah Gambar / Ilustrasi Utama */
+        .image-wrapper {
+            width: 100%;
+            height: 220px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            border: 1px solid var(--border-color);
+            background-color: #222;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Memastikan bentuk bendera tidak terpotong */
+            background-color: #000;
+            display: block;
+        }
+
+        /* Kuis Interaktif */
+        .quiz-section {
+            background: linear-gradient(135deg, #13131a, #1f162c);
+            border-radius: 12px;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+        }
+
+        .quiz-option {
+            background: rgba(255,255,255,0.04);
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .result-box {
+            margin-top: 15px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Komponen Latar Belakang Partikel Bergerak -->
+    <div class="background-animation">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <header>
+        <h1>Ruang Informasi & Edukasi</h1>
+        <p>Memahami Spektrum Aseksual dan Varian Karakteristik Interseksual</p>
+    </header>
+
+    <div class="main-container">
+
+        <section class="grid-two-col">
+            
+            <!-- Sisi Aseksual -->
+            <div class="card ace">
+                <div class="image-wrapper">
+                </div>
+                <h2>Aseksualitas (Ace)</h2>
+                <p>
+                    <strong>Aseksualitas</strong> adalah spektrum orientasi seksual di mana seseorang merasakan sedikit atau tidak sama sekali ketertarikan seksual terhadap orang lain. Hal ini mutlak berbeda dengan selibat atau pantangan seksual yang didasari atas keputusan perilaku sadar (pilihan hidup), melainkan murni merupakan orientasi psikologis bawaan diri.
+                </p>
+                <p>
+                    Individu aseksual tetap memiliki kapasitas emosional yang utuh untuk menjalin hubungan romantis, menjalin komitmen mendalam, serta merasakan kasih sayang tanpa harus didasari oleh dorongan intimasi fisik.
+                </p>
+            <div class="card intersex">
+                <div class="image-wrapper">
+                    <!-- Link gambar bendera interseksual resmi dari Wikimedia Commons -->
+                    <img src="https://wikimedia.org" alt="Bendera Resmi Interseksual">
+                </div>
+                <h2>Interseksual (Intersex)</h2>
+                <p>
+                    <strong>Interseks</strong> merujuk pada variasi biologis alami bawaan lahir, di mana struktur anatomi reproduksi, kromosom, atau sistem hormonal seseorang tidak cocok dengan definisi medis biner tradisional tentang tubuh pria atau wanita.
+                </p>
+                <p>
+                    Kondisi ini merupakan wujud keberagaman alami ragawi manusia. Komunitas interseks global terus menyuarakan perlindungan hak asasi manusia agar variasi fisik ini tidak dimodifikasi secara paksa lewat prosedur medis kosmetik non-konsensual sejak bayi lahir.
+                </p>
+            </div>
+        </section>
+
+        <!-- KUIS INTERAKTIF -->
+        <section class="quiz-section">
+            <h2 style="margin-bottom: 15px;">Uji Pemahaman</h2>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Pertanyaan: Apa perbedaan mendasar antara kedua konsep di atas?</p>
+            
+            <div class="quiz-option" onclick="checkAnswer(this, true)">A. Aseksual berada di ranah orientasi psikologis, sedangkan Interseksual berada di ranah variasi anatomi biologis tubuh.</div>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">B. Keduanya merupakan penyakit medis menular yang bisa disembuhkan melalui terapi psikolog.</div>
+            <div class="quiz-option" onclick="checkAnswer(this, false)">C. Interseksual adalah pilihan gaya hidup bebas, sementara Aseksual adalah kondisi fisik bawaan lahir.</div>
+
+            <div class="result-box" id="quiz-result"></div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 - Portal Informasi Keberagaman Manusia. Gambar bersumber resmi dari arsip publik terbuka.</p>
+    </footer>
+
+    <script>
+        function checkAnswer(element, isCorrect) {
+            const resultBox = document.getElementById('quiz-result');
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach(opt => opt.style.background = 'rgba(255,255,255,0.04)');
+
+            if (isCorrect) {
+                element.style.background = '#1b5e20'; 
+                resultBox.innerHTML = "Tepat sekali! Aseksual berkaitan dengan ketertarikan (mind/orientasi), sedangkan Interseksual berkaitan dengan karakteristik fisik tubuh (body/biologis).";
+                resultBox.style.color = "#81c784";
+            } else {
+                element.style.background = '#b71c1c'; 

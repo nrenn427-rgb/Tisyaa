@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natisya Haira - Personal Portfolio</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #080b11;
+            color: #f1f5f9;
+            overflow-x: hidden;
+        }
+
+        /* Ambient Glow Background Background Effects */
+        .glow-1 {
+            position: absolute;
+            top: 10%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(236, 72, 153, 0.25);
+            filter: blur(120px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .glow-2 {
+            position: absolute;
+            top: 60%;
+            right: -10%;
+            width: 450px;
+            height: 450px;
+            background: rgba(129, 140, 248, 0.2);
+            filter: blur(130px);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        /* Navbar Glassmorphism */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ec4899, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ec4899;
+        }
+
+        /* Layout Main Sections */
+        section {
+            padding: 120px 8% 60px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Hero / Header Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 320px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(236, 72, 153, 0.1);
+            color: #ec4899;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            margin-bottom: 30px;
+            max-width: 520px;
+        }
+
+        .social-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 26px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .btn-ig {
+            background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3);
+        }
+
+        .btn-wa {
+            background: #25d366;
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            min-width: 280px;
+        }
+
+        .avatar-frame {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ec4899, #818cf8);
+            padding: 6px;
+            box-shadow: 0 0 40px rgba(236, 72, 153, 0.3);
+            position: relative;
+        }
+
+        .avatar-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: #1e293b;
+        }
+
+        /* Section Title Styling */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .section-header p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* Step Timeline (Bertahap) */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background: #080b11;
+            border: 4px solid #ec4899;
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .left { left: 0; }
+        .right { left: 50%; }
+
+        .right::after { left: -10px; }
+
+        .timeline-content {
+            padding: 25px;
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+        }
+
+        .timeline-content h3 {
+            color: #ec4899;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .timeline-content p {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        /* Dance Video Grid */
+        .dance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .dance-card {
+            background: rgba(30, 41, 59, 0.6);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .dance-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .video-box {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+        }
+
+        .video-box iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .dance-details {
+            padding: 20px;
+        }
+
+        .dance-details h4 {
+            color: #ffffff;
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+
+        .dance-details p {
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        /* Contact Section Card */
+        .contact-box {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(129, 140, 248, 0.1));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .contact-box p {
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: #05070a;
+            color: #64748b;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Responsive Settings */
+        @media screen and (max-width: 768px) {
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text p {
+                margin: 0 auto 25px;
+            }
+
+            .social-buttons {
+                justify-content: center;
+            }
+
+            .timeline::after { left: 31px; }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+
+            .timeline-item::after {
+                left: 21px;
+            }
+
+            .right { left: 0%; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow-1"></div>
+    <div class="glow-2"></div>
+
+    <!-- Navigasi Utama -->
+    <nav>
+        <div class="logo">NATISYA</div>
+        <ul class="nav-links">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Profil</a></li>
+            <li><a href="#journey">Tahapan Dance</a></li>
+            <li><a href="#videos">Video Dance</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header / Hero -->
+    <section id="home">
+        <div class="hero">
+            <div class="hero-text">
+                <div class="badge">
+                    <i class="fa-solid fa-graduation-cap"></i> Siswi SMKN 4 Palembang
+                </div>
+                <h1>Natisya Haira Putri Suji</h1>
+                <p>Halo! Saya siswi berusia 14 tahun yang menyukai seni tari modern dan tari kreasi. Selamat datang di portofolio digital saya!</p>
+                <div class="social-buttons">
+                    <a href="https://instagram.com/geb_rann55" target="_blank" class="btn btn-ig">
+                        <i class="fa-brands fa-instagram"></i> @geb_rann55
+                    </a>
+                    <a href="https://wa.me/6283163805273" target="_blank" class="btn btn-wa">
+                        <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="avatar-frame">
+                    <img src="https://via.placeholder.com/300" alt="Foto Natisya">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tahapan Perkembangan Dance (Timeline) -->
+    <section id="journey">
+        <div class="section-header">
+            <h2>Tahapan & Proses Dance</h2>
+            <p>Langkah demi langkah dalam mengembangkan hobi menari</p>
+        </div>
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Tahap 1: Pengenalan Dasar</h3>
+                    <p>Memelajari ritme lagu, olah tubuh, latihan kelenturan, dan gerakan dasar dasar tarian modern.</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Tahap 2: Menghafal Koreografi</h3>
+                    <p>Mulai menghafal gerakan dance populer (K-Pop / Hip-Hop) secara bertahap sesuai tempo.</p>
+                </div>
+            </div>
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h3>Tahap 3: Pemantapan Ekspresi & Detail</h3>
+                    <p>Mempertajam sinkronisasi gerakan tangan, pola lantai, dan melatih ekspresi panggung saat menari.</p>
+                </div>
+            </div>
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h3>Tahap 4: Tampil & Cover Performance</h3>
+                    <p>Mengunggah video cover dance serta tampil di berbagai event sekolah atau komunitas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri Video Dance -->
+    <section id="videos">
+        <div class="section-header">
+            <h2>Contoh Karya Dance</h2>
+            <p>Saksikan beberapa penampilan dan referensi dance favorit</p>
+        </div>
+        <div class="dance-grid">
+            <div class="dance-card">
+                <div class="video-box">
+                    <iframe src="https://www.youtube.com/embed/gQlMMD8auMs" title="Dance Performance 1" allowfullscreen></iframe>
+                </div>
+                <div class="dance-details">
+                    <h4>K-Pop Cover Dance</h4>
+                    <p>Koreografi cepat dengan ketukan musik yang energik.</p>
+                </div>
+            </div>
+            <div class="dance-card">
+                <div class="video-box">
+                    <iframe src="https://www.youtube.com/embed/L134j-o4-6U" title="Dance Performance 2" allowfullscreen></iframe>
+                </div>
+                <div class="dance-details">
+                    <h4>Group Choreography</h4>
+                    <p>Fokus pada kekompakan tim dan variasi formasi panggung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+        <div class="contact-box">
+            <h3>Mari Terhubung!</h3>
+            <p>Ingin berkolaborasi atau sekadar berteman? Hubungi saya via media sosial berikut:</p>
+            <div class="social-buttons" style="justify-content: center;">
+                <a href="https://instagram.com/geb_rann55" target="_blank" class="btn btn-ig">
+                    <i class="fa-brands fa-instagram"></i> Instagram
+                </a>
+                <a href="https://wa.me/6283163805273" target="_blank" class="btn btn-wa">
+                    <i class="fa-brands fa-whatsapp"></i> 083163805273
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Natisya Haira Putri Suji • SMKN 4 Palembang</p>
+    </footer>
+
+</body>
+</html>

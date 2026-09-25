@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NATISYA — JOKER EDITION</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#08080a;--card:#111113;--green:#1db954;--purple:#6e2cf5;--line:#1e1e22;--paper:#c9c9c2}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--paper);font-family:'JetBrains Mono',monospace;overflow-x:hidden}
+h1,h2{font-family:'Syne',sans-serif}
+a{color:inherit;text-decoration:none}
+
+/* smoke */
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(ellipse at 20% 70%,rgba(29,185,84,.14),transparent 55%),radial-gradient(ellipse at 80% 20%,rgba(110,44,245,.16),transparent 50%),var(--bg)}
+.blob{position:fixed;width:700px;height:700px;border-radius:50%;filter:blur(120px);opacity:.6;animation:move 12s infinite alternate}
+.b1{background:var(--purple);top:-200px;right:-200px}
+.b2{background:var(--green);bottom:-200px;left:-200px;animation-delay:-6s}
+@keyframes move{to{transform:translate(60px,-60px) scale(1.15)}}
+
+/* marquee */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;overflow:hidden;white-space:nowrap;background:#0c0c0e}
+.marquee div{display:inline-block;animation:marq 20s linear infinite}
+.marquee span{font-family:'Bebas Neue';font-size:22px;margin:0 28px;letter-spacing:2px;opacity:.7}
+.marquee span.green{color:var(--green)} .marquee span.purple{color:var(--purple)}
+@keyframes marq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* nav */
+.nav{max-width:1100px;margin:0 auto;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:2px}
+.nav b{border:1px solid var(--line);padding:6px 12px;border-radius:100px}
+
+/* hero */
+.hero{max-width:1100px;margin:10px auto;padding:0 20px;display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden;position:relative}
+.main{padding:28px;animation:pop .7s}
+@keyframes pop{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+.glitch{position:relative;display:inline-block}
+.glitch::before,.glitch::after{content:attr(data-text);position:absolute;top:0;left:0;width:100%;height:100%;opacity:.7}
+.glitch::before{color:var(--green);animation:gl1 .8s infinite;clip-path:inset(0 0 60% 0)}
+.glitch::after{color:var(--purple);animation:gl2 .8s infinite;clip-path:inset(60% 0 0 0)}
+@keyframes gl1{0%{transform:translate(-1px,0)}50%{transform:translate(1px,0)}100%{transform:translate(-1px,0)}}
+@keyframes gl2{0%{transform:translate(1px,0)}50%{transform:translate(-1px,0)}100%{transform:translate(1px,0)}}
+.main h1{font-size:66px;line-height:.9;margin:10px 0}
+.main h1 em{color:var(--green);font-style:normal}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.tags span{border:1px solid var(--line);background:#0e0e10;padding:6px 12px;border-radius:100px;font-size:11px}
+.tags span.joker{background:var(--green);color:black;font-weight:700;transform:rotate(-2deg)}
+.tags span.joker2{background:var(--purple);color:white;transform:rotate(2deg)}
+.desc{color:#8a8a87;font-size:13px;line-height:1.7;margin:12px 0}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+.stat{border:1px solid var(--line);border-radius:16px;padding:12px;text-align:center;background:#0c0c0e}
+.stat b{font-size:22px;display:block;color:white}
+.stat small{font-size:10px;letter-spacing:1px;color:#666}
+
+.side{display:flex;flex-direction:column}
+.photo{flex:1;position:relative;min-height:480px;background:#000}
+.photo img{width:100%;height:100%;object-fit:cover;opacity:.9;filter:grayscale(.1) contrast(1.1)}
+.photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8),transparent 50%)}
+.overlay{position:absolute;bottom:14px;left:14px;right:14px;z-index:2;display:flex;justify-content:space-between;align-items:end}
+.badge{background:rgba(255,255,255,.92);color:black;padding:10px 14px;border-radius:16px;font-size:11px;font-weight:700}
+.badge small{display:block;color:#555;font-weight:400}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line)}
+.btn{padding:16px;text-align:center;font-weight:800;font-size:12px;letter-spacing:1px;transition:.2s;cursor:pointer;border:0;background:var(--card);color:white}
+.btn:hover{background:white;color:black}
+.btn.green{background:var(--green);color:black}
+
+.grid{max-width:1100px;margin:14px auto;padding:0 20px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.mini{border:1px solid var(--line);background:var(--card);border-radius:20px;padding:18px}
+.mini h3{font-family:'Bebas Neue';font-size:20px;letter-spacing:1px}
+.mini p{color:#7a7a77;font-size:12px;margin-top:6px;line-height:1.6}
+
+@media(max-width:860px){.hero{grid-template-columns:1fr}.main h1{font-size:48px}.grid{grid-template-columns:1fr}.nav{font-size:10px}}
+</style>
+</head>
+<body>
+<div class="bg"></div><div class="blob b1"></div><div class="blob b2"></div>
+
+<div class="nav">
+  <span>SMKN 4 PALEMBANG — X RPL2</span>
+  <b>🃏 JOKER EDITION</b>
+  <span>geb_rann55</span>
+</div>
+
+<div class="marquee"><div>
+  <span>WHY SO SERIOUS ?</span><span class="green">•</span>
+  <span>NATISYA HAIRA PUTRI SUJI</span><span class="purple">•</span>
+  <span>SMKN 4 PALEMBANG</span><span class="green">•</span>
+  <span>X RPL 2</span><span class="purple">•</span>
+  <span>DANCER / CODER</span><span class="green">•</span>
+  <span>WHY SO SERIOUS ?</span><span class="purple">•</span>
+  <span>NATISYA HAIRA PUTRI SUJI</span><span class="green">•</span>
+</div></div>
+
+<div class="hero">
+  <div class="card main" id="tilt">
+    <p style="font-size:10px;letter-spacing:3px;color:var(--green)">PROFILE — 19•06•2012</p>
+    <h1><span class="glitch" data-text="NATISYA">NATISYA</span><br><em>HAIRA PUTRI</em><br>SUJI</h1>
+    
+    <div class="tags">
+      <span class="joker">🃏 JOKER GIRL</span>
+      <span>14 Y.O</span>
+      <span class="joker2">💃 DANCE</span>
+      <span>19-06-2012</span>
+      <span>X RPL2</span>
+    </div>
+
+    <p class="desc">Halo, aku Natisya. Umur 14, sekolah di SMKN 4 Palembang kelas X RPL2. Hobi dance, tapi otak RPL. Tema Joker karena hidup kadang harus ketawa walaupun chaos. Aku gak suka warna terang — gelap itu jujur.</p>
+
+    <div class="stats">
+      <div class="stat"><b>14</b><small>YEARS</small></div>
+      <div class="stat"><b>X</b><small>RPL 2</small></div>
+      <div class="stat"><b id="days">0</b><small>DAYS ALIVE</small></div>
+    </div>
+
+    <div style="border:1px solid var(--line);border-radius:14px;padding:10px 12px;display:flex;gap:10px;align-items:center;background:#0a0a0a">
+      <div style="width:28px;height:28px;border-radius:50%;background:var(--green);display:grid;place-items:center;color:black;font-weight:800">♪</div>
+      <div style="flex:1"><small style="color:#555">NOW PLAYING — JOKER SMILE</small><br><b id="lyric" style="font-size:12px">Put on a happy face 🙂</b></div>
+    </div>
+  </div>
+
+  <div class="card side">
+    <div class="photo">
+      <!-- FOTO KAMU - ganti link drive dengan file lokal kalau mau -->
+      <img src="https://drive.google.com/uc?export=view&id=1S8k74XfXtEzShCCaVEQzdaqspO7ItUQR" alt="Natisya Joker" onerror="this.src='https://i.ibb.co/0y0pL0v/joker-placeholder.jpg'">
+      <div class="overlay">
+        <div class="badge">NATISYA H.P.S <small>X RPL2 • SMKN 4 PALEMBANG</small></div>
+        <div style="background:var(--green);color:black;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:800">🃏</div>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn green" href="https://instagram.com/geb_rann55" target="_blank">IG • @geb_rann55</a>
+      <a class="btn" href="https://wa.me/6283838441669" target="_blank">WA • CHAT</a>
+    </div>
+  </div>
+</div>
+
+<div class="grid">
+  <div class="mini"><h3>ABOUT</h3><p>Nama lengkap Natisya Haira Putri Suji. Lahir 19 Juni 2012. Suka dance K-Pop & modern. Anak RPL yang cinta dark aesthetic.</p></div>
+  <div class="mini"><h3 style="color:var(--green)">CONTACT</h3><p>IG: geb_rann55<br>WA: 0838-3844-1669<br>Sekolah: SMKN 4 PALEMBANG<br>Kelas: X RPL2</p></div>
+  <div class="mini"><h3 style="color:var(--purple)">QUOTE JOKER</h3><p id="quote">"Smile, because it confuses people. Smile, because it's easier than explaining what is killing you inside."</p></div>
+</div>
+
+<p style="text-align:center;color:#333;font-size:10px;letter-spacing:2px;padding:30px">© 2026 NATISYA HAIRA PUTRI SUJI — JOKER EDITION • WHY SO SERIOUS?</p>
+
+<script>
+// days alive
+const birth=new Date(2012,5,19);document.getElementById('days').innerText=Math.floor((new Date()-birth)/86400000);
+// lyric rotate
+const t=["Put on a happy face 🙂","Why so serious?","Dance in the chaos 🃏","Born 19-06-2012 — Joker girl","SMKN 4 PALEMBANG — X RPL2"];
+let i=0;setInterval(()=>{document.getElementById('lyric').innerText=t[i=(i+1)%t.length]},2200);
+// quotes
+const q=["\"Smile, because it confuses people.\"","\"They laugh at me because I'm different.\"","\"The worst part of having a mental illness is people expect you to behave as if you don't.\"","\"Dance, even when the world is burning.\""];let qi=0;setInterval(()=>{document.getElementById('quote').innerText=q[qi=(qi+1)%q.length]},4000);
+// tilt
+const card=document.getElementById('tilt');document.addEventListener('mousemove',e=>{const r=card.getBoundingClientRect();const x=(e.clientX-r.left-r.width/2)/30;const y=(e.clientY-r.top-r.height/2)/30;card.style.transform=`perspective(900px) rotateY(${x}deg) rotateX(${-y}deg)`});
+</script>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edukasi: Aseksual & Interseksual</title>
+    <style>
+        /* Gaya Dasar & Warna Klasik */
+        :root {
+            --bg-classic: #121214;
+            --card-bg: #1e1e24;
+            --text-main: #f0f0f5;
+            --text-muted: #a0a0aa;
+            --accent-ace: #8a2be2;      /* Ungu khas Aseksual */
+            --accent-intersex: #ffcc00; /* Kuning/Emas khas Interseksual */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif; /* Font klasik */
+        }
+
+        body {
+            background-color: var(--bg-classic);
+            color: var(--text-main);
+            overflow-x: hidden;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        /* Latar Belakang Bergerak (Animated Particles) */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            bottom: -50px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 50%;
+            animation: floatUp 15s infinite linear;
+        }
+
+        /* Variasi ukuran dan posisi partikel bergerak */
+        .bubble:nth-child(1) { left: 10%; width: 80px; height: 80px; animation-duration: 12s; }
+        .bubble:nth-child(2) { left: 25%; width: 40px; height: 40px; animation-duration: 18s; animation-delay: 2s; }
+        .bubble:nth-child(3) { left: 45%; width: 120px; height: 120px; animation-duration: 22s; background: rgba(138, 43, 226, 0.04); }
+        .bubble:nth-child(4) { left: 70%; width: 60px; height: 60px; animation-duration: 14s; animation-delay: 4s; background: rgba(255, 204, 0, 0.04); }
+        .bubble:nth-child(5) { left: 85%; width: 90px; height: 90px; animation-duration: 16s; }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateY(-110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Struktur Konten */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5), transparent);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            color: #ffffff;
+            border-bottom: 2px solid rgba(255,255,255,0.1);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container { grid-template-columns: 1fr; }
+        }
+
+        /* Kartu Informasi */
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card.ace { border-top: 5px solid var(--accent-ace); }
+        .card.intersex { border-top: 5px solid var(--accent-intersex); }
+
+        .card h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .ace h2 { color: #dcdcc6; }
+        .intersex h2 { color: var(--accent-intersex); }
+
+        .card p {
+            color: var(--text-main);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Area Representasi Visual / Bendera */
+        .flag-placeholder {
+            width: 100%;
+            height: 150px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.4);
+        }
+
+        /* Warna Bendera Klasik Menggunakan Gradien CSS */
+        .flag-ace {
+            background: linear-gradient(to bottom, 
+                #000000 25%, 
+                #a3a3a3 25%, #a3a3a3 50%, 
+                #ffffff 50%, #ffffff 75%, 
+                #800080 75%);
+            color: #fff;
+            text-shadow: 1px 1px 5px #000;
+        }
+
+        .flag-intersex {
+            background-color: #ffda00;
+            position: relative;
+            color: #111;
+        }
+
+        /* Simbol lingkaran ungu khas bendera interseksual */
+        .flag-intersex::before {
+            content: "";
+            width: 60px;
+            height: 60px;
+            border: 8px solid #7a0010;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Komponen Latar Belakang Bergerak -->
+    <div class="background-animation">
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+        <div class="bubble"></div>
+    </div>
+
+    <header>
+        <h1>Ruang Edukasi</h1>
+        <p>Memahami Keberagaman: Aseksual & Interseksual</p>
+    </header>
+
+    <div class="container">
+        <!-- Bagian Aseksual -->
+        <div class="card ace">
+            <div class="flag-placeholder flag-ace">ASEKSUAL</div>
+            <h2>Aseksual (Ace)</h2>
+            <p>
+                <strong>Aseksualitas</strong> adalah spektrum orientasi di mana seseorang merasakan sedikit atau tidak sama sekali ketertarikan seksual terhadap orang lain. Ini adalah identitas orientasi bawaan, bukan pilihan selibat atau pantangan seksual.
+            </p>
+            <p>
+                Seorang aseksual tetap dapat membentuk hubungan emosional, romantis, atau spiritual yang mendalam. Bendera representasinya terdiri dari garis hitam (aseksualitas), abu-abu (grey-asexual), putih (aloseksual/pendukung), dan ungu (komunitas).
+            </p>
+        </div>
+
+        <!-- Bagian Interseksual -->
+        <div class="card intersex">
+            <div class="flag-placeholder flag-intersex"></div>
+            <h2>Interseksual</h2>
+            <p>
+                <strong>Interseks</strong> adalah istilah payung yang digunakan untuk seseorang yang lahir dengan variasi karakteristik seks tubuh (seperti kromosom, hormon, atau organ reproduksi) yang tidak sesuai dengan definisi medis standar tentang tubuh laki-laki atau perempuan.
+            </p>
+            <p>
+                Berbeda dengan aseksual yang merupakan orientasi, interseksual berkaitan dengan <em>ciri fisik atau biologis</em> sejak lahir. Bendera interseks diciptakan dengan warna kuning dan lingkaran ungu di tengahnya, melambangkan keutuhan dan kelengkapan diri mereka tanpa modifikasi paksa.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 - Ruang Edukasi Inklusif. Dibuat dengan format klasik & elegan.</p>
+    </footer>
+
+</body>
+</html>
